@@ -5,7 +5,6 @@ import {
     signOut,
     useSession
 } from "next-auth/react";
-import Link from 'next/link';
 import {useRouter} from "next/router";
 
 const  home = () => {
@@ -28,7 +27,7 @@ const  home = () => {
 
                 {session && <>
                     <h1>Signed in as {session.user.name} </h1> <br/>
-                    <button onClick={() => router.push("/app")}>Go to APP</button> <br/>
+                    <button onClick={() => router.push("/home")}>Go to APP</button> <br/>
                     <button onClick={signOut}>Sign out</button>
                 </>}
 

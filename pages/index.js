@@ -1,26 +1,40 @@
+import Head from 'next/head';
+import React from 'react';
+import {
+    signIn,
+    signOut,
+    useSession
+} from "next-auth/react";
+import Link from 'next/link';
 import {useRouter} from "next/router";
 
-export default function Home({testParam}) {
+const  home = () => {
     const router = useRouter();
-    console.log(testParam)
-  return (
-    <div>
-      <div>Testing Purpose... </div> <br/>
-      <div>BASEPATH from env: {process.env.NEXT_PUBLIC_BASEPATH}</div> <br/>
-        <button onClick={() => router.push({
-            pathname: "/route1/1002",
-            query: {
-                id: 1001
-            }
-        })}>Click Me</button>
-    </div>
-  )
+
+    const {data: session} = useSession();
+
+    return (
+        <div>
+            <Head>
+                <title>SubPath Test</title>
+            </Head>
+
+            <main>
+
+                {!session && <>
+                    <h1>You are not signed in</h1> <br/>
+                    <button onClick={signIn}>Sign in</button>
+                </>}
+
+                {session && <>
+                    <h1>Signed in as {session.user.name} </h1> <br/>
+                    <button onClick={() => router.push("/app")}>Go to APP</button> <br/>
+                    <button onClick={signOut}>Sign out</button>
+                </>}
+
+            </main>
+        </div>
+    )
 }
 
-export async function getServerSideProps() {
-    return {
-        props: {
-            testParam: "testParam",
-        },
-    };
-}
+export default home;

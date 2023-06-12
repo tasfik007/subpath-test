@@ -8,7 +8,7 @@ export default function Home({testParam}) {
       <div>Testing Purpose... </div> <br/>
       <div>BASEPATH from env: {process.env.NEXT_PUBLIC_BASE_PATH}</div> <br/>
         <button onClick={() => router.push({
-            pathname: "/route1/1002",
+            pathname: "/home/route1/1002",
             query: {
                 id: 1001
             }

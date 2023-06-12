@@ -2,7 +2,7 @@ import {NextResponse} from "next/server";
 
 
 const checkAuthorization = async (req) => {
-  return req.headers.get('cookie').includes('next-auth.session-token');
+  return req.headers.get('cookie')?.includes('next-auth.session-token');
 }
 
 export const middleware = async (req) => {

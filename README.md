@@ -1,6 +1,6 @@
 # Test SubPath in nextJs with next-auth
 
-This project is set up to use NextAuth.js as an authentication provider with two options: GitHub and Keycloak. To run the project with GitHub as the provider, you need to configure the following environment variables:
+This project is set up to test subpath in NextAuth.js with an authentication provider with two options: GitHub and Keycloak. To run the project with GitHub as the provider, you need to configure the following environment variables in the .env file:
 
 ## GitHub Provider
 
@@ -14,7 +14,7 @@ Additionally, you need to provide the following GitHub-specific environment vari
 
 ## Keycloak Provider
 
-If you want to use Keycloak as the authentication provider, you will need to uncomment the following environment variables and provide their values:
+If you want to use Keycloak as the authentication provider, you will need to comment above-mentioned two keys and uncomment the following environment variables and provide their values:
 
 - `# NEXTAUTH_SECRET`: A secret key used for secure session encryption. You can generate a random value for this.
 - `# NEXTAUTH_JWT_SIGNING_PRIVATE_KEY`: A private key used for signing JSON Web Tokens (JWTs). Again, generate a secure random value for this.

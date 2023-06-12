@@ -12,9 +12,9 @@ export const middleware = async (req) => {
       return req.next;
     }
     const url = req.nextUrl.clone();
-    url.pathname = `/unauthorized`;
+    url.pathname = "";
     url.basePath = "/mst"
     url.search = "";
     return NextResponse.redirect(url);
-  } else return req.next;
+  } else return NextResponse.next();
 };

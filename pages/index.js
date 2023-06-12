@@ -27,8 +27,10 @@ const  home = () => {
 
                 {session && <>
                     <h1>Signed in as {session.user.name} </h1> <br/>
-                    <button onClick={() => router.push("/home")}>Go to APP</button> <br/>
-                    <button onClick={signOut}>Sign out</button>
+                    <span>
+                        <button onClick={() => router.push("/home")}>Proceed</button>
+                    </span>&nbsp;
+                    <span><button onClick={signOut}>Sign out</button></span>
                 </>}
 
             </main>

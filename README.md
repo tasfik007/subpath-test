@@ -26,6 +26,7 @@ You also need to provide the following public environment variables specific to 
 - `# NEXT_PUBLIC_KEYCLOAK_CLIENT_ID`: The client ID registered in Keycloak.
 
 Make sure to configure the required environment variables based on the chosen provider before running the project.
+### And last you need to navigate to /pages/api/auth/[...nextauth].js file and comment line 5 & uncomment line 6
 
 ## Running the Project
 

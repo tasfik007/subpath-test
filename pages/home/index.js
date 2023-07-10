@@ -2,7 +2,6 @@ import {useRouter} from "next/router";
 
 export default function Home({testParam}) {
     const router = useRouter();
-    console.log(testParam)
   return (
     <div>
       <div>Testing Purpose... </div> <br/>

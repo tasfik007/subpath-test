@@ -20,5 +20,9 @@ To run the project, follow these steps:
 2. Install the project dependencies using your preferred package manager (`npm install` or `yarn install`).
 3. Configure the required environment variables based on the authentication provider you choose.
 4. Run the project using the appropriate command (`npm run dev` or `yarn dev`).
+5. Navigate to localhost:3000/{NEXT_PUBLIC_BASE_PATH}
+6. Login with github
+7. Click proceed to enter into the application
+8. Click next to view the dynamic param missing issue
 
 That's it! You should now be able to run the project with either GitHub or Keycloak as the authentication provider. Enjoy!

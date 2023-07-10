@@ -1,20 +1,13 @@
 import {NextResponse} from "next/server";
 
-
-const checkAuthorization = async (req) => {
-  return req.headers.get('cookie')?.includes('next-auth.session-token');
-}
-
-export const middleware = async (req) => {
+export const middleware = (req) => {
   if(req.nextUrl.pathname.startsWith("/home")) {
-    const isAuthorized = await checkAuthorization(req);
+    const isAuthorized = req.cookies.has("next-auth.session-token");
+    // if authorized proceed with the response
     if(isAuthorized) {
-      return req.next;
+      return NextResponse.next();
     }
-    const url = req.nextUrl.clone();
-    url.pathname = "";
-    url.basePath = "/mst"
-    url.search = "";
-    return NextResponse.redirect(url);
-  } else return NextResponse.next();
+    // if not authorized redirect to the login page
+    return NextResponse.redirect(new URL('/mst', req.url));
+  }
 };

@@ -5,7 +5,7 @@ export default function Page3({serverSideId}) {
     const {id, dynamicParam} = router.query;
     return (
         <div>
-            <div>This is page 2</div> <br/>
+            <div><b>Full reload</b> the page and see magic</div> <br/>
             <div>Query Param Received By next/router: {id}</div>
             <div>Dynamic Param Received By next/router: {dynamicParam}</div>
             <div>Dynamic Param Received By Server Side: {serverSideId}</div> <br/>

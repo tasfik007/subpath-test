@@ -2,9 +2,10 @@ import {useRouter} from "next/router";
 
 export default function Home({testParam}) {
     const router = useRouter();
+    console.log(testParam)
   return (
     <div>
-      <div>Testing Purpose... </div> <br/>
+      <div>Click <b>Next Page</b> to see the dynamic param missing issue </div> <br/>
       <div>BASEPATH from env: {process.env.NEXT_PUBLIC_BASE_PATH}</div> <br/>
         <button onClick={() => router.push({
             pathname: "/home/route1/1002",

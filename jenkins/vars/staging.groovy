@@ -28,6 +28,7 @@ def call(params) {
             DATE = getCurrentDate(currentBuild)
 
             // Batch specific configurations
+            batch = "${params.ENABLE_BATCH}"
             BATCH_MODULE_CODE = "${params.BATCH_MODULE_CODE}"
             BATCH_PACKAGE_NAME = "${params.BATCH_PACKAGE_NAME}"
             BATCH_JAR_FILE = "${params.BATCH_JAR_FILE}"

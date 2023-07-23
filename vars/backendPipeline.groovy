@@ -1,4 +1,4 @@
-def call() {
+def call(args) {
     pipeline {
         agent {
             docker {
@@ -13,13 +13,13 @@ def call() {
         environment {
             HOME = "${WORKSPACE}"
 
-            MODULE_CODE = 'reg'
-            PACKAGE_NAME = 'boardreg'
-            BUILD_NAME = 'boardreg'
-            DOCKER_FILE_NAME = 'Boardreg.Dockerfile'
-            JAR_FILE = 'boardreg.jar'
+            MODULE_CODE = args.MODULE_CODE
+            PACKAGE_NAME = args.PACKAGE_NAME
+            BUILD_NAME = args.BUILD_NAME
+            DOCKER_FILE_NAME = args.DOCKER_FILE_NAME
+            JAR_FILE = args.JAR_FILE
 
-            TAG = 'v1.0'
+            TAG = args.TAG
             BUILD_NUMBER = "${env.BUILD_NUMBER}"
             BACKEND_REPOSITORY = 'registryserver.ieims.local/dsi/backend'
             FRONTEND_REPOSITORY = "registryserver.ieims.local/dsi/frontend/${scope}"
@@ -28,9 +28,9 @@ def call() {
             DATE = getCurrentDate(currentBuild)
 
             // Batch specific configurations
-            BATCH_MODULE_CODE = 'reg-batch'
-            BATCH_PACKAGE_NAME = 'boardreg-batch'
-            BATCH_JAR_FILE = 'boardreg-batch.jar'
+            BATCH_MODULE_CODE = args.BATCH_MODULE_CODE
+            BATCH_PACKAGE_NAME = args.BATCH_PACKAGE_NAME
+            BATCH_JAR_FILE = args.BATCH_JAR_FILE
         }
 
         stages {

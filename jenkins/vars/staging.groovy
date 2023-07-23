@@ -133,7 +133,7 @@ def call(params) {
             }
 
             stage('batch') {
-                when { expression { batch == 'true' } }
+                when { expression { propertyDefined('batch') && batch == 'true' } }
                 stages {
                     stage('maven-build') {
                         steps {

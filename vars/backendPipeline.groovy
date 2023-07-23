@@ -1,4 +1,4 @@
-def call(args) {
+def call(params) {
     pipeline {
         agent {
             docker {
@@ -13,13 +13,13 @@ def call(args) {
         environment {
             HOME = "${WORKSPACE}"
 
-            MODULE_CODE = "${args.MODULE_CODE}"
-            PACKAGE_NAME = "${args.PACKAGE_NAME}"
-            BUILD_NAME = "${args.BUILD_NAME}"
-            DOCKER_FILE_NAME = "${args.DOCKER_FILE_NAME}"
-            JAR_FILE = "${args.JAR_FILE}"
+            MODULE_CODE = "${params.MODULE_CODE}"
+            PACKAGE_NAME = "${params.PACKAGE_NAME}"
+            BUILD_NAME = "${params.BUILD_NAME}"
+            DOCKER_FILE_NAME = "${params.DOCKER_FILE_NAME}"
+            JAR_FILE = "${params.JAR_FILE}"
 
-            TAG = "${args.TAG}"
+            TAG = "${params.TAG}"
             BUILD_NUMBER = "${env.BUILD_NUMBER}"
             BACKEND_REPOSITORY = 'registryserver.ieims.local/dsi/backend'
             FRONTEND_REPOSITORY = "registryserver.ieims.local/dsi/frontend/${scope}"
@@ -28,9 +28,9 @@ def call(args) {
             DATE = getCurrentDate(currentBuild)
 
             // Batch specific configurations
-            BATCH_MODULE_CODE = "${args.BATCH_MODULE_CODE}"
-            BATCH_PACKAGE_NAME = "${args.BATCH_PACKAGE_NAME}"
-            BATCH_JAR_FILE = "${args.BATCH_JAR_FILE}"
+            BATCH_MODULE_CODE = "${params.BATCH_MODULE_CODE}"
+            BATCH_PACKAGE_NAME = "${params.BATCH_PACKAGE_NAME}"
+            BATCH_JAR_FILE = "${params.BATCH_JAR_FILE}"
         }
 
         stages {
